@@ -140,7 +140,7 @@ app.post('/login', async (req, res) => {
     const { email, password } = req.body;
     const userFound = await user.findOne({ email });
     if (!userFound) {
-        return res.send('Invalid User Credentials'); // Handle the case where the user doesn't exist
+        return res.send('Invalid User Credentials');
     }
 
     const passwordMatch = await bcrypt.compare(password, userFound.password);
@@ -162,11 +162,7 @@ app.post('/login', async (req, res) => {
     } else {
         res.send("Invalid credentials pass");
     }
-    // if (userFound && isMatch) {
-    //     res.redirect('Events');
-    // } else {
-    //     res.send('Invalid credentials');
-    // }
+
 });
 
 app.get('/addEvent', isAuthenticated, isAdmin, (req, res) => {
@@ -262,7 +258,7 @@ app.get('/search', async (req, res) => {
     }
 });
 
-// Get Edit Event Form
+
 app.get('/editEvent/:id', isAuthenticated, isAdmin, async (req, res) => {
     const { id } = req.params;
     try {
@@ -278,7 +274,7 @@ app.get('/editEvent/:id', isAuthenticated, isAdmin, async (req, res) => {
     }
 });
 
-// Update Event
+
 app.post('/editEvent/:id', isAuthenticated, isAdmin, async (req, res) => {
     const { id } = req.params;
     const { image, event_title, date, location, description } = req.body;
@@ -291,26 +287,25 @@ app.post('/editEvent/:id', isAuthenticated, isAdmin, async (req, res) => {
             location,
             description
         });
-        res.redirect('/Events'); // Redirect to events page after update
+        res.redirect('/Events'); 
     } catch (error) {
         console.error('Error updating event:', error);
         res.status(500).send('Internal Server Error');
     }
 });
 
-// Delete Event
+
 app.post('/deleteEvent/:id', isAuthenticated, isAdmin, async (req, res) => {
     const { id } = req.params;
     try {
         await event.findByIdAndDelete(id);
-        res.redirect('/Events'); // Redirect to events page after deletion
+        res.redirect('/Events'); 
     } catch (error) {
         console.error('Error deleting event:', error);
         res.status(500).send('Internal Server Error');
     }
 });
 
-// Event Details Route
 app.get('/event/:id', isAuthenticated, async (req, res) => {
     const { id } = req.params;
     try {
@@ -329,9 +324,7 @@ app.get('/event/:id', isAuthenticated, async (req, res) => {
 
 
 app.get("/logout", (req, res) => {
-    //!Logout
     res.clearCookie("userData");
-    //redirect
     res.redirect("/login");
 });
 
