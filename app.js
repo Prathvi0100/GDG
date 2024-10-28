@@ -258,6 +258,7 @@ app.get('/search', async (req, res) => {
 });
 
 
+
 app.get('/editEvent/:id', isAuthenticated, isAdmin, async (req, res) => {
     const { id } = req.params;
     try {
@@ -276,7 +277,7 @@ app.get('/editEvent/:id', isAuthenticated, isAdmin, async (req, res) => {
 
 app.post('/editEvent/:id', isAuthenticated, isAdmin, async (req, res) => {
     const { id } = req.params;
-    const { image, event_title, date, location, description } = req.body;
+    const { image, event_title, date, location, description,full_details } = req.body;
 
     try {
         await event.findByIdAndUpdate(id, {
@@ -284,7 +285,8 @@ app.post('/editEvent/:id', isAuthenticated, isAdmin, async (req, res) => {
             event_title,
             date,
             location,
-            description
+            description,
+            full_details
         });
         res.redirect('/Events'); 
     } catch (error) {
