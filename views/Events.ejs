@@ -243,11 +243,13 @@
         }
 
         .admin-actions a:hover {
-            color: #357ae8; /* Darker blue on hover */
+            color: #357ae8;
+            /* Darker blue on hover */
         }
 
         .admin-actions button {
-            background-color: #dc3545; /* Bootstrap danger color */
+            background-color: #dc3545;
+            /* Bootstrap danger color */
             color: white;
             border: none;
             padding: 5px 10px;
@@ -258,7 +260,8 @@
         }
 
         .admin-actions button:hover {
-            background-color: #c82333; /* Darker red on hover */
+            background-color: #c82333;
+            /* Darker red on hover */
         }
     </style>
 </head>
@@ -266,7 +269,7 @@
 <body>
     <nav class="navbar">
         <a href="/" class="nav-logo">
-            <img src="https://imgs.search.brave.com/xJrnEe471cg7olIzwdQJBZSG_5bvn8hVkw9ky0sdw2A/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9nZHNj/bXBzdG1lLmNvbS9p/bWFnZXMvZ2RzYy1s/b2dvLnBuZw"
+            <img src="https://imgs.search.brave.com/xJrnEe471cg7olIzwdQJBZSG_5bvn8hVkw9ky0sdw2A/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9nZHNj/bXBzdG1lLmNvbS9p/bWFnZXMvZ2RzYy1z/b2dvLnBuZw"
                 alt="GDG Logo">
             <strong>GDSC - Nitte Meenakshi Institute of Technology</strong>
         </a>
@@ -285,9 +288,9 @@
     </div>
     <h1>Event List</h1>
     <ul class="event-list">
-        <% events.forEach((event)=> { %>
-            <a href="/event/<%= event._id %>" class="event-link"></a>
+        <% events.forEach((event) => { %>
             <li class="event-item" style="background-color: #9ce7e1">
+                <a href="/event/<%= event._id %>" class="event-link"></a>
                 <img src="<%= event.image %>" alt="<%= event.event_title %>" class="event-image" />
                 <strong>Title:</strong>
                 <%= event.event_title %><br><br>
@@ -305,19 +308,18 @@
                         </form>
                     <% } %>
                     <a href="/event/<%= event._id %>" class="register-button" style="background-color: #9eb8e1;">More Details</a>
-                    <button class="register-button">Register</button> <!-- Register button added -->
+                    <button id="registerButton<%= event._id %>" class="register-button">Register</button>
                 </div>
             </li>
         <% }); %>
     </ul>
 
     <div class="pagination">
-        <a href="?page=<%= currentPage - 1 %>" <% if (currentPage===1) { %> style="display: none;" <% } %>>Previous</a>
+        <a href="?page=<%= currentPage - 1 %>" <% if (currentPage === 1) { %> style="display: none;" <% } %>>Previous</a>
         <span>Page <%= currentPage %> of <%= totalPages %></span>
-        <a href="?page=<%= currentPage + 1 %>" <% if (currentPage===totalPages) { %> style="display: none;" <% } %>
-            >Next</a>
+        <a href="?page=<%= currentPage + 1 %>" <% if (currentPage === totalPages) { %> style="display: none;" <% } %>>Next</a>
     </div>
-
+    
 </body>
 
 </html>

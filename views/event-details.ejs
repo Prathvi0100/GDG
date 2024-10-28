@@ -5,17 +5,94 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= event.event_title %> - Event Details</title>
-    <link rel="stylesheet" href="/styles.css"> <!-- Link your CSS file if needed -->
+    <link rel="stylesheet" href="/styles.css"> <!-- Link to external CSS if needed -->
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            background-color: #f9f9f9;
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* Event Container */
+        .event-details-container {
+            background-color: #ffffff;
+            padding: 20px;
+            max-width: 600px;
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: #4285f4; /* Google blue */
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        img {
+            width: 100%;
+            max-width: 400px; /* Medium size */
+            height: auto;
+            border-radius: 8px;
+            margin: 0 auto 15px;
+            display: block;
+        }
+
+        p {
+            font-size: 1rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        strong {
+            color: #4285f4;
+        }
+
+        /* Go Back Button */
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4285f4;
+            color: #fff;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .back-button:hover {
+            background-color: #357ae8;
+        }
+    </style>
 </head>
 
 <body>
-    <h1><%= event.event_title %></h1>
-    <img src="<%= event.image %>" alt="<%= event.event_title %>" style="width: 100%; height: auto; max-width: 600px;">
-    <p><strong>Date:</strong> <%= event.date.toDateString() %></p>
-    <p><strong>Location:</strong> <%= event.location %></p>
-    <p><strong>Description:</strong> <%= event.description %></p>
-    <p><strong>Details:</strong> <%= event.full_details %></p>
-    <button onclick="window.history.back()">Go Back</button> <!-- Button to navigate back -->
+    <div class="event-details-container">
+        <h1><%= event.event_title %></h1>
+        <img src="<%= event.image %>" alt="<%= event.event_title %>">
+        <p><strong>Date:</strong> <%= event.date.toDateString() %></p>
+        <p><strong>Location:</strong> <%= event.location %></p>
+        <p><strong>Description:</strong> <%= event.description %></p>
+        <p><strong>Details:</strong> <%= event.full_details %></p>
+        <a href="javascript:window.history.back()" class="back-button">Go Back</a>
+    </div>
 </body>
 
-</html> 
+</html>

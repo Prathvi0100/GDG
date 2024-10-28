@@ -113,7 +113,6 @@ const userSchema = new mongoose.Schema({
 const user = mongoose.model('user', userSchema);
 const event = mongoose.model('event', eventSchema);
 
-
 app.get('/', (req, res) => {
     res.render('index',{isAdmin});
 });
@@ -222,6 +221,7 @@ app.get('/Events', isAuthenticated, async (req, res) => {
                 currentPage,
                 totalPages,
                 isAdmin,
+                Enrollment
             });
         } catch (error) {
             console.error('Error fetching events:', error);
@@ -325,6 +325,7 @@ app.get('/event/:id', isAuthenticated, async (req, res) => {
         res.status(500).send('Internal Server Error');
     }
 });
+
 
 
 app.get("/logout", (req, res) => {
