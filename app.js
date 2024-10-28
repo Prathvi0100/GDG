@@ -217,7 +217,6 @@ app.get('/Events', isAuthenticated, async (req, res) => {
                 currentPage,
                 totalPages,
                 isAdmin,
-                Enrollment
             });
         } catch (error) {
             console.error('Error fetching events:', error);
