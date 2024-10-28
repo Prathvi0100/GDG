@@ -1,4 +1,3 @@
-require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
@@ -10,12 +9,12 @@ const app = express();
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
-app.use(express.json()); // For JSON data
+app.use(express.json()); 
 
 app.set('view engine', 'ejs');
 app.use(cookieParser());
 
-//Connect to MongoDB    
+  
 mongoose.connect('mongodb://localhost:27017/user').then(() => {
     console.log('Connected to MongoDB');
 }).catch((err) => {
@@ -23,12 +22,12 @@ mongoose.connect('mongodb://localhost:27017/user').then(() => {
 });
 
 const isAuthenticated = (req, res, next) => {
-    //check the user in the cookies
+  
     const userDataCookie = req.cookies.userData;
-    // console.log(userDataCookie);
+    
     try {
         const userData = userDataCookie && JSON.parse(userDataCookie);
-        // console.log(userData);
+    
         if (userData && userData.username) {
             req.userData = userData;
             return next();
