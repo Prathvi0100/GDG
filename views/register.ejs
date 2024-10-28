@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="icon" href="https://imgs.search.brave.com/xJrnEe471cg7olIzwdQJBZSG_5bvn8hVkw9ky0sdw2A/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9nZHNj/bXBzdG1lLmNvbS9p/bWFnZXMvZ2RzYy1s/b2dvLnBuZw" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            display: flex;
+            flex-direction: column; /* Stack elements vertically */
+            align-items: center; /* Center horizontally */
+            font-family: 'Roboto', sans-serif;
+            background-color: #eadab9;
+            height: 100vh; /* Full height of the viewport */
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #42b3f4; /* Google blue */
+            padding: 0.5rem 1.5rem; /* Adjusted padding for better sizing */
+            color: #fff;
+            position: sticky; /* Sticky positioning */
+            top: 0; /* Position it at the top */
+            z-index: 1000; /* Ensure it's above other content */
+            width: 100%; /* Full width */
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem; /* Adjusted font size */
+            text-decoration: none;
+            color: #12071e;
+        }
+
+        .nav-logo img {
+            height: 40px; /* Slightly reduced logo size */
+            margin-right: 0.5rem;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 1.5rem; /* Adjusted margin for better spacing */
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem; /* Adjusted font size */
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #fbbc05; /* Google yellow */
+        }
+
+        /* Form Container */
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 400px; /* Set max width for form */
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin-top: 10px; /* Reduced space above form */
+        }
+
+        /* Form Heading */
+        h1 {
+            text-align: center;
+            margin-top: 10px; /* Reduced margin above heading */
+            font-size: 28px; /* Font size for heading */
+            color: #4285f4; /* Google Blue */
+        }
+
+        /* Form Inputs */
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="submit"] {
+            margin-bottom: 1rem;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            transition: border-color 0.3s; /* Transition for input focus */
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="password"]:focus {
+            border-color: #4285f4; /* Change border color on focus */
+            outline: none; /* Remove outline */
+        }
+
+        /* Submit Button Styling */
+        input[type="submit"] {
+            background-color: #4285f4; /* Google Blue */
+            color: #fff;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            border: none; /* Remove border */
+        }
+
+        input[type="submit"]:hover {
+            background-color: #357ae8; /* Darker blue on hover */
+        }
+
+        /* Label Styling */
+        label {
+            margin-bottom: 5px;
+            font-weight: 600; /* Bold labels for better readability */
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="/" class="nav-logo">
+            <img src="https://imgs.search.brave.com/xJrnEe471cg7olIzwdQJBZSG_5bvn8hVkw9ky0sdw2A/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9nZHNj/bXBzdG1lLmNvbS9p/bWFnZXMvZ2RzYy1s/b2dvLnBuZw" alt="GDG Logo">
+            <strong>GDSC - Nitte Meenakshi Institute of Technology</strong>
+        </a>
+        <ul class="nav-links">
+            <li><a href="/events">Events</a></li>
+            <li><a href="/addEvent">Add Event</a></li>
+            <li><a href="/register">Register</a></li>
+            <li><a href="/login">Login</a></li>
+        </ul>
+    </nav>
+    <h1>Register</h1>
+    <form action="/register" method="POST" style="background-color: #9ce7e1">
+        <label for="username">Username:</label>
+        <input type="text" name="username" placeholder="username" required />
+        <label for="email">Email:</label>
+        <input type="email" name="email" placeholder="email" required /> 
+        <label for="password">Password:</label>
+        <input type="password" name="password" placeholder="password" required />
+        <input type="submit" value="Register">
+    </form>
+</body>
+</html>

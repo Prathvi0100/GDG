@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= event.event_title %> - Event Details</title>
+    <link rel="stylesheet" href="/styles.css"> <!-- Link your CSS file if needed -->
+</head>
+
+<body>
+    <h1><%= event.event_title %></h1>
+    <img src="<%= event.image %>" alt="<%= event.event_title %>" style="width: 100%; height: auto; max-width: 600px;">
+    <p><strong>Date:</strong> <%= event.date.toDateString() %></p>
+    <p><strong>Location:</strong> <%= event.location %></p>
+    <p><strong>Description:</strong> <%= event.description %></p>
+    <p><strong>Details:</strong> <%= event.full_details %></p>
+    <button onclick="window.history.back()">Go Back</button> <!-- Button to navigate back -->
+</body>
+
+</html> 

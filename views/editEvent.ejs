@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Event</title>
+    <link rel="icon" href="https://imgs.search.brave.com/xJrnEe471cg7olIzwdQJBZSG_5bvn8hVkw9ky0sdw2A/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9nZHNj/bXBzdG1lLmNvbS9p/bWFnZXMvZ2RzYy1s/b2dvLnBuZw" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #eadab9;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        /* Header */
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #4285f4; /* Google Blue */
+        }
+
+        /* Form */
+        form {
+            background-color: #fff; /* White background for form */
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+            max-width: 600px; /* Limit width of form */
+            margin: 0 auto; /* Center form horizontally */
+        }
+
+        label {
+            display: block; /* Block display for labels */
+            margin-bottom: 5px; /* Space below labels */
+            font-weight: bold; /* Bold text for labels */
+        }
+
+        input[type="text"],
+        input[type="date"],
+        textarea {
+            width: 100%; /* Full width for inputs */
+            padding: 10px; /* Padding for inputs */
+            margin-bottom: 15px; /* Space below inputs */
+            border: 1px solid #ccc; /* Border for inputs */
+            border-radius: 5px; /* Rounded corners */
+            font-size: 1rem; /* Font size for inputs */
+        }
+
+        button {
+            background-color: #34a853; /* Google Green */
+            color: #fff; /* White text */
+            border: none; /* No border */
+            padding: 10px 15px; /* Padding for button */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Pointer cursor on hover */
+            transition: background-color 0.3s; /* Transition for hover effect */
+            display: block; /* Block display for button */
+            width: 100%; /* Full width for button */
+        }
+
+        button:hover {
+            background-color: #2c8f4d; /* Darker green on hover */
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Edit Event</h1>
+    <form action="/editEvent/<%= event._id %>" method="POST">
+        <label for="image">Image URL:</label>
+        <input type="text" name="image" value="<%= event.image %>" required>
+
+        <label for="event_title">Event Title:</label>
+        <input type="text" name="event_title" value="<%= event.event_title %>" required>
+
+        <label for="date">Date:</label>
+        <input type="date" name="date" value="<%= event.date.toISOString().split('T')[0] %>" required>
+
+        <label for="location">Location:</label>
+        <input type="text" name="location" value="<%= event.location %>" required>
+
+        <label for="description">Description:</label>
+        <textarea name="description" required><%= event.description %></textarea>
+
+        <button type="submit">Update Event</button>
+    </form>
+</body>
+
+</html>
